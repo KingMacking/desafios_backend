@@ -35,7 +35,8 @@ class ProductManager {
             products[productIndex] = {...products[productIndex], ...updatedField}
             await fs.promises.writeFile(this.path, JSON.stringify(products))
         } catch (error) {
-            
+            console.log("Producto no existente o no se pudo actualizar")
+            console.log(error)
         }
     }
 
@@ -46,7 +47,8 @@ class ProductManager {
             await products.splice(productIndex, 1)
             await fs.promises.writeFile(this.path, JSON.stringify(products))
         } catch (error) {
-            
+            console.log("Producto no existente o no se pudo eliminar")
+            console.log(error)
         }
     }
 
@@ -77,7 +79,7 @@ class ProductManager {
             }
             return id
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
