@@ -53,3 +53,11 @@ class ProductManager {
         return this.products.find(product=> product.code === productCode)
     }
 }
+
+const productManager1 = new ProductManager()
+console.log(productManager1.getProducts())
+productManager1.addProduct('producto prueba','Este es un producto prueba', 200, "Sin imagen", 'abc123', 25)
+productManager1.addProduct('producto prueba2','Este es un producto prueba2', 200, "Sin imagen", 'abcd123', 25)
+console.log(productManager1.getProducts())
+productManager1.addProduct('producto prueba','Este es un producto prueba', 200, "Sin imagen", 'abc123', 25)
+console.log(productManager1.getProductById(3))
