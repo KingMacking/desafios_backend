@@ -1,8 +1,8 @@
 const fs = require('fs')
 
 class ProductManager {
-    constructor(){
-        this.path = './Products.json'
+    constructor(path){
+        this.path = path
     }
 
     async getProducts(){
