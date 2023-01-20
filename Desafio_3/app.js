@@ -1,9 +1,9 @@
 import express from 'express'
-import ProductManager from './ProductManager.js'
+import ProductManager from './src/ProductManager.js'
 
 const PORT = 8080
 const app = express()
-const productManager = new ProductManager("./products.json")
+const productManager = new ProductManager("./src/products.json")
 
 app.listen(PORT, () => {
     console.log(`Server runnin on port ${PORT}`);
