@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Manzana",
+        "description": "Fruta roja",
+        "price": 50,
+        "thumbnail": "https://www.recetasnestle.com.ar/sites/default/files/2022-04/tipos-de-manzana-royal-gala.jpg",
+        "code": "001",
+        "stock": 25,
+        "id": 1
+    },
+    {
+        "title": "Banana",
+        "description": "Fruta amarilla",
+        "price": 60,
+        "thumbnail": "https://i5.walmartimages.com/asr/5939a6fa-a0d6-431c-88c6-b4f21608e4be.f7cd0cc487761d74c69b7731493c1581.jpeg",
+        "code": "002",
+        "stock": 20,
+        "id": 2
+    },
+    {
+        "title": "Naranja",
+        "description": "Fruta naranja",
+        "price": 30,
+        "thumbnail": "https://assets.stickpng.com/images/580b57fcd9996e24bc43c16d.png",
+        "code": "003",
+        "stock": 25,
+        "id": 3
+    },
+    {
+        "title": "Pera",
+        "description": "Fruta verde amarillenta",
+        "price": 70,
+        "thumbnail": "https://static.wixstatic.com/media/a7dee3_4c558736f7b243329c59427d855d278c~mv2.jpg/v1/fill/w_640,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a7dee3_4c558736f7b243329c59427d855d278c~mv2.jpg",
+        "code": "004",
+        "stock": 15,
+        "id": 4
+    },
+    {
+        "title": "Arandanos",
+        "description": "Fruta azul",
+        "price": 110,
+        "thumbnail": "https://static1.elcorreo.com/www/multimedia/202206/16/media/cortadas/salud17-k8JD-U170440715004sdB-624x385@El%20Correo.jpg",
+        "code": "005",
+        "stock": 45,
+        "id": 5
+    },
+    {
+        "title": "Limon",
+        "description": "Fruta amarilla",
+        "price": 35,
+        "thumbnail": "https://cdn.hsnstore.com/blog/wp-content/uploads/2012/11/limon1-1.jpg",
+        "code": "006",
+        "stock": 35,
+        "id": 6
+    },
+    {
+        "title": "Durazno",
+        "description": "Fruta naranja rojiza",
+        "price": 80,
+        "thumbnail": "https://media.istockphoto.com/id/1137630158/es/foto/fruto-único-de-melocotón-con-hoja-aislada-en-blanco.jpg?s=612x612&w=0&k=20&c=QN4nZAGQfHb2WVQgczYV2pt6o6bcB7mRepoBCcmCJ9U=",
+        "code": "007",
+        "stock": 15,
+        "id": 7
+    },
+    {
+        "title": "Mandarina",
+        "description": "Fruta naranja",
+        "price": 45,
+        "thumbnail": "https://media.istockphoto.com/id/504384796/es/foto/maduros-frescos-tangerines.jpg?s=612x612&w=0&k=20&c=PqIgR6aGkqAFl9y9B6dNd4HoMd37WigyAg2JKZ2_F0I=",
+        "code": "008",
+        "stock": 30,
+        "id": 8
+    },
+    {
+        "title": "Frutilla",
+        "description": "Fruta roja",
+        "price": 65,
+        "thumbnail": "https://static7.depositphotos.com/1171117/1093/i/600/depositphotos_10934045-stock-photo-strawberry-berry-with-green-leaf.jpg",
+        "code": "009",
+        "stock": 55,
+        "id": 9
+    },
+    {
+        "title": "Uvas",
+        "description": "Fruta violeta",
+        "price": 90,
+        "thumbnail": "https://img.freepik.com/fotos-premium/racimo-uvas-rojas-aisladas-blanco_75891-170.jpg?w=2000",
+        "code": "010",
+        "stock": 10,
+        "id": 10
+    }
+]
