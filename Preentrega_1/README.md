@@ -12,7 +12,17 @@ _Ruta:_ /api/products
     - "/:idProduct" nos devuelve el producto con el ID especificado, en caso de que el mismo exista.
 
 2. POST:
-     - "/" crea un producto siempre y cuando el producto sea valido y el codigo del mismo no se repita, los datos se deben enviar a traves del body.
+    - "/" crea un producto siempre y cuando el producto sea valido y el codigo del mismo no se repita, los datos se deben enviar a traves del body.
+    Los datos que se envian deben ser los siguientes:
+        - title: String
+        - description: String
+        - code: String
+        - price: Number
+        - status: Boolean
+        - stock: Number
+        - category: String
+        - thumbnails: Array de strings que contengan las rutas donde se almacenan las imagenes del producto
+
 
 3. DELETE:
     - "/:idProduct" elimina el producto con el ID solicitado en caso de que este exista.
