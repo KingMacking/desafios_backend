@@ -36,14 +36,13 @@ router.post('/', productValidator ,async (req,res) => {
 })
 
 //Delete product by ID
-router.delete('/', async (req,res) => {
+router.delete('/:idProduct', async (req,res) => {
     const {idProduct} = req.params
     const deletedProd = await productManager.deleteProduct(parseInt(idProduct))
-    res.json({deletedProd})
 })
 
 //Update product by ID
-router.put('/', async (req,res) => {
+router.put('/:idProduct', async (req,res) => {
     const {idProduct} = req.params
     const updatedFields = req.body
     console.log(idProduct);
