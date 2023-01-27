@@ -13,6 +13,7 @@ _Ruta:_ /api/products
 
 2. POST:
     - "/" crea un producto siempre y cuando el producto sea valido y el codigo del mismo no se repita, los datos se deben enviar a traves del body.
+    
     Los datos que se envian deben ser los siguientes:
         - title: String
         - description: String
