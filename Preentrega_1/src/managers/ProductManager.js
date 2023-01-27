@@ -26,7 +26,7 @@ export default class ProductManager {
         if(product) {
             return product
         } else {
-            return "Not Found"
+            return null
         }
     }
 
@@ -34,15 +34,16 @@ export default class ProductManager {
     async updateProduct(productId, updatedFields){
         try {
             const products = await this.getProducts()
-            const productIndex = await products.findIndex(product=> product.id === productId)
-            if(await this.#evaluateCode(updatedFields.code)){
-                return "No puedes utilizar este codigo ya que se encuentra en uso"
-            } else {
-                products[productIndex] = {...products[productIndex], ...updatedFields}
-                await fs.promises.writeFile(this.path, JSON.stringify(products))
+            if(await this.getProductById(productId)){
+                const productIndex = await products.findIndex(product=> product.id === productId)
+                if(await this.#evaluateCode(updatedFields.code)){
+                    return "No puedes utilizar este codigo ya que se encuentra en uso"
+                } else {
+                    products[productIndex] = {...products[productIndex], ...updatedFields}
+                    await fs.promises.writeFile(this.path, JSON.stringify(products))
+                }
             }
         } catch (error) {
-            console.log("Producto no existente o no se pudo actualizar")
             console.log(error)
         }
     }
@@ -72,6 +73,7 @@ export default class ProductManager {
             if (productIndex && productIndex !== -1) {
                 products.splice(productIndex, 1)
                 await fs.promises.writeFile(this.path, JSON.stringify(products))
+                return "Producto eliminado con exito"
             } else {
                 return "ID no encontrado"
             }

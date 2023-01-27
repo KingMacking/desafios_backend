@@ -2,14 +2,14 @@ import { Router } from "express";
 import CartManager from "../managers/CartManager.js";
 
 const router = Router()
-const cartManager = new CartManager('src/data/cart.json')
+const cartManager = new CartManager('src/data/carts.json')
 
 //Get cart by ID
 router.get('/:cartId', async (req,res) => {
     const {cartId} = req.params
     const cart = await cartManager.getCartById(parseInt(cartId))
     if(cart){
-        res.send(cart)
+        res.send(cart.products)
     } else {
         res.send("Carrito no encontrado")
     }
