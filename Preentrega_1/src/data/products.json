@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Sandia",
+    "description": "Fruta verde, roja en el interior",
+    "price": 120,
+    "thumbnail": "https://5aldia.cl/wp-content/uploads/2018/03/sandia.jpg",
+    "code": "051",
+    "stock": 20,
+    "category": "Frutas",
+    "status": true,
+    "id": 1
+  },
+  {
+    "title": "Manzana",
+    "description": "Fruta roja",
+    "price": 120,
+    "thumbnail": "https://d1xxa24wwackpg.cloudfront.net/wp-content/uploads/2017/09/07143430/273-Mag-6g-6.jpg",
+    "code": "001",
+    "stock": 50,
+    "category": "Frutas",
+    "status": true,
+    "id": 2
+  }
+]
