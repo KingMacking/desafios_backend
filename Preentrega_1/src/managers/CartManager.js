@@ -37,6 +37,7 @@ export default class CartManager {
             let id = cartsData.length === 0 ? 1 :cartsData[cartsData.length - 1].id + 1
             cartsData.push({id: id,products: []})
             await fs.promises.writeFile(this.path, JSON.stringify(cartsData))
+            return  `Carrito con el ID ${id} creado con exito`
         } catch (error) {
             console.log(error);
         }
@@ -54,16 +55,16 @@ export default class CartManager {
                     existingProd && (existingProd.quantity += 1)
                     cartsData[cartIndex] = {...cart}
                     await fs.promises.writeFile(this.path, JSON.stringify(cartsData))
-                    return "Producto existente, agregado 1 a la cantidad"
+                    return `Producto con el ID ${prodId} ya existente en el carrito, agregado 1 a su cantidad`
                 } else {
                     const product = {product: prodId, quantity: 1}
                     await cart.products.push(product)
                     cartsData[cartIndex] = {...cart}
                     await fs.promises.writeFile(this.path, JSON.stringify(cartsData))
-                    return "Producto agregado con exito"
+                    return `Producto con el ID ${prodId} agregado con exito al carrito`
                 }
             } else {
-                return "Carrito inexistente"
+                return `Carrito con el ID ${cartId} no existente`
             }
         } catch (error) {
             console.log(error);

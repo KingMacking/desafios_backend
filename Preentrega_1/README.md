@@ -28,7 +28,7 @@ _Ruta:_ /api/products
     - "/:idProduct" elimina el producto con el ID solicitado en caso de que este exista.
 
 4. PUT:
-    - "/:idProduct" actualiza un producto segun el ID que se envia con los datos enviados a traves del body, en caso de que dicho producto exista y que el codigo enviado en el body no se repita.
+    - "/:idProduct" actualiza un producto segun el ID que se envia con los datos enviados a traves del body, en caso de que dicho producto exista.
 
 ## CARTS
 _Ruta:_ /api/carts

@@ -24,7 +24,7 @@ export default class ProductManager {
     async getProductById(productId){
         const product = await this.#findProductById(productId)
         if(product) {
-            return product
+            return ("Producto encontrado:" + product)
         } else {
             return null
         }
@@ -36,12 +36,9 @@ export default class ProductManager {
             const products = await this.getProducts()
             if(await this.getProductById(productId)){
                 const productIndex = await products.findIndex(product=> product.id === productId)
-                if(await this.#evaluateCode(updatedFields.code)){
-                    return "No puedes utilizar este codigo ya que se encuentra en uso"
-                } else {
-                    products[productIndex] = {...products[productIndex], ...updatedFields}
-                    await fs.promises.writeFile(this.path, JSON.stringify(products))
-                }
+                products[productIndex] = {...products[productIndex], ...updatedFields}
+                await fs.promises.writeFile(this.path, JSON.stringify(products))
+                return ("Producto actualizado con exito" + products[productIndex])
             }
         } catch (error) {
             console.log(error)
@@ -53,11 +50,12 @@ export default class ProductManager {
         try {
             const productsData = await this.getProducts()
             if(await this.#evaluateCode(product.code)){
-                return "Codigo ya existente, no se pudo agregar el producto"
+                return `Codigo ${product.code} ya existente, no se pudo agregar el producto`
             } else {
                 let id = productsData.length === 0 ? 1 : productsData[productsData.length-1].id + 1
                 productsData.push({...product, id})
                 await fs.promises.writeFile(this.path, JSON.stringify(productsData))
+                return `Producto agregado con exito con el ID ${id}`
             }
         } catch (error) {
             console.log(error)
@@ -73,7 +71,7 @@ export default class ProductManager {
             if (productIndex && productIndex !== -1) {
                 products.splice(productIndex, 1)
                 await fs.promises.writeFile(this.path, JSON.stringify(products))
-                return "Producto eliminado con exito"
+                return `Producto con el ID ${products[productIndex].id} eliminado correctamente`
             } else {
                 return "ID no encontrado"
             }
