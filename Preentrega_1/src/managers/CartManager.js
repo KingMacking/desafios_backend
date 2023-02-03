@@ -31,7 +31,7 @@ export default class CartManager {
     }
 
     //Create cart
-    async createCart(cart){
+    async createCart(){
         try {
             const cartsData = await this.getCarts()
             let id = cartsData.length === 0 ? 1 :cartsData[cartsData.length - 1].id + 1
