@@ -26,7 +26,7 @@ export const socketServer = new Server(httpServer)
 socketServer.on('connection', socket => {
     console.log(`Usuario conectado con el ID ${socket.id}`)
     socket.emit('fetchProducts')
-    socket.on('addProduct', () => {
+    socket.on('updateProducts', () => {
         socket.emit('fetchProducts')
     })
 })

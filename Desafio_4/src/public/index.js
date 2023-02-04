@@ -1,9 +1,9 @@
 const socketClient = io()
 
 const productForm = document.getElementById('productForm');
+const productDeleteForm = document.getElementById('productDeleteForm')
 
 productForm.addEventListener('submit', (e) => {
-    console.log("submit action");
     e.preventDefault()
     const formData = new FormData(productForm)
 
@@ -12,7 +12,19 @@ productForm.addEventListener('submit', (e) => {
         body: formData
     })
     .then(res => res.json())
-    socketClient.emit('addProduct')
+    socketClient.emit('updateProducts')
+})
+
+productDeleteForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formData = new FormData(productDeleteForm)
+
+    fetch('/api', {
+        method: 'DELETE',
+        body: formData
+    })
+    .then(res => res.json())
+    socketClient.emit('updateProducts')
 })
 
 socketClient.on('fetchProducts', () => {

@@ -5,6 +5,7 @@ import { uploader } from "../utils.js";
 
 const router = Router()
 const productService = new ProductManager('src/data/products.json')
+
 router.get('/api', async (req,res) => {
     const products = await productService.getProducts()
     res.send(products)
@@ -13,9 +14,18 @@ router.post('/api', uploader.none(), async (req,res)=>{
     const newProduct = req.body
     try {
         const product = await productService.addProduct(newProduct)
-        console.log(product);
+        res.send(product)
     } catch (error) {
         res.send(error);
+    }
+})
+router.delete('/api', uploader.none(), async (req,res) => {
+    try {
+        const idProduct = req.body.id
+        const deletedProd = await productService.deleteProduct(parseInt(idProduct))
+        res.send(deletedProd)
+    } catch (error) {
+        res.send(error)
     }
 })
 
