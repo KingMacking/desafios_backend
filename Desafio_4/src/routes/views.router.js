@@ -1,31 +1,38 @@
 import { Router } from "express";
-import { productValidator } from "../middlewares/productValidator.js";
-import ProductManager from "../services/ProductManager.js";
+import ProductManager from "../../../Preentrega_1/src/managers/ProductManager.js";
+import { socketServer } from "../app.js";
+import { uploader } from "../utils.js";
 
 const router = Router()
-const productManager = new ProductManager('src/data/products.json')
-
-router.get('/', async (req, res) => {
-    const products = await productManager.getProducts()
-    res.render('home', {
-        title: "productos",
-        hasProducts: products.length > 0,
-        products
-    })
+const productService = new ProductManager('src/data/products.json')
+router.get('/api', async (req,res) => {
+    const products = await productService.getProducts()
+    res.send(products)
 })
-
-router.post('/realtimeproducts', productValidator, async (req, res)=>{
+router.post('/api', uploader.none(), async (req,res)=>{
     const newProduct = req.body
-    const product = await productManager.addProduct(newProduct)
-    const io = req.app.get('socketio')
-    io.emit('getProducts')
-    res.send({message: `Producto agregado con exito`, product: product})
+    try {
+        const product = await productService.addProduct(newProduct)
+        console.log(product);
+    } catch (error) {
+        res.send(error);
+    }
 })
 
-router.get('/realtimeproducts', async (req,res)=>{
-    res.render('realTimeProducts', {
-        title: "Productos en tiempo real"
-    })
+
+router.get('/', async (req,res)=> {
+    try {
+        const products = await productService.getProducts()
+        res.render('home', {
+            hasProducts: products.length > 0,
+            products
+        })
+    } catch (error) {
+        res.send(error)
+    }
+})
+router.get ('/realtimeproducts', (req,res) => {
+    res.render('realTimeProducts')
 })
 
 export default router
