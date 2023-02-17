@@ -1,6 +1,6 @@
 import { Router } from "express";
-import ProductManager from "../../../Preentrega_1/src/managers/ProductManager.js";
 import { socketServer } from "../app.js";
+import ProductManager from "../services/ProductManager.js";
 import { uploader } from "../utils.js";
 
 const router = Router()
