@@ -1,4 +1,4 @@
-# INCORPORACION DE PERSISTENCIA A TRAVES DE MONGODB
+# INCORPORACION DE PERSISTENCIA ATRAVES DE MONGODB
 
 Desafio Opcional N° 1 - Curso backend Coderhouse.
 
@@ -27,7 +27,7 @@ _Ruta:_ /products
         - status: Boolean
         - stock: Number
         - category: String
-        - thumbnails: Array de strings que contengan las rutas donde se almacenan las imagenes del producto
+        - thumbnails: String con la url de la imagen
 
 
 3. DELETE:
