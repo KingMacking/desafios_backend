@@ -18,15 +18,15 @@ export default class ProductManager {
             const product = await productModel.findById(productId)
             return product
         } catch (error) {
-            
+            return error
         }
     }
 
     //Add product
     async addProduct(product){
         try {
-            const newProduct = await productModel.create(product)
-            return newProduct
+            await productModel.create(product)
+            return "Producto creado con exito"
         } catch (error) {
             return error
         }
@@ -35,14 +35,14 @@ export default class ProductManager {
     //Update product by ID
     async updateProduct(productId, updatedFields){
         try {
-            const updatedProduct = await productModel.updateOne({_id: productId},
+            await productModel.updateOne({_id: productId},
                 {
                     $set: {
                         ...updatedFields
                     }
                 }
             )
-            return updatedProduct
+            return `Producto con el ID ${productId} actualizado con exito`
         } catch (error) {
             return error
         }
@@ -51,8 +51,8 @@ export default class ProductManager {
     //Delete prduct by ID
     async deleteProduct(productId){
         try {
-            const deletedProduct = await productModel.deleteOne({_id: productId})
-            return deletedProduct
+            await productModel.deleteOne({_id: productId})
+            return `Producto con el ID ${productId} eliminado con exito`
         } catch (error) {
             return error
         }
