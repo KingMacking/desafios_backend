@@ -49,10 +49,11 @@ _Ruta:_ /carts
 
 ## Prueba en local
 
-- Clonar el repositorio
+- Clonar el repositorio y acceder a la carpeta
 
 ```sh
 git clone https://github.com/KingMacking/desafios_backend.git
+cd .\Desafio_Opcional_1\
 ```
 
 - Instalara dependencias e iniciar el servidor
