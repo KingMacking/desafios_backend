@@ -1,14 +1,15 @@
 <h2 id="greeting"></h2>
 
 <form id="chatForm">
-    <input type="email" name="user" id="user">
-    <input type="text" name="message" id="message">
+    <label for="email">Email:</label>
+    <input type="email" name="user" id="user" placeholder="Ingresa tu email">
+    <label for="message">Menasje:</label>
+    <input type="text" name="message" id="message" placeholder="Ingresa el mensaje">
     <input type="submit" value="Enviar mensaje">
 </form>
 
 <div id="chatMessages">
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>

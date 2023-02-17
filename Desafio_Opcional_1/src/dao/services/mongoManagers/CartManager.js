@@ -26,8 +26,8 @@ export default class CartManager {
     async createCart(){
         try {
             const cart = {products: []}
-            const newCart = await cartModel.create(cart)
-            return newCart
+            await cartModel.create(cart)
+            return "Carrito creado con exito"
         } catch (error) {
             return error
         }
@@ -39,17 +39,17 @@ export default class CartManager {
             const cart = await this.getCartById(cartId)
             if(cart) {
                 if(await this.#isInCart(prodId, cart)) {
-                    const updatedCart = await cartModel.findOneAndUpdate({_id: cartId, "products.product": prodId},
+                    await cartModel.findOneAndUpdate({_id: cartId, "products.product": prodId},
                         {
                             $inc: {
                                 "products.$.quantity": 1
                             }
                         }
                     )
-                    return updatedCart
+                    return `Producto con el ID ${prodId} ya existente en el carrito con ID ${cartId}, agregado 1 a la cantidad con exito`
                 } else {
                     const product = {product: prodId, quantity: 1}
-                    const updatedCart = await cartModel.updateOne({_id: cartId},
+                    await cartModel.updateOne({_id: cartId},
                         {
                             $push: {
                                 products: {
@@ -58,18 +58,17 @@ export default class CartManager {
                             }
                         }
                     )
-                    return updatedCart
+                    return  `Producto con el ID ${prodId} agregado al carrito con ID ${cartId} con exito`
                 }
             } else {
                 return `Carrito con el ID ${cartId} no existente`
             }
         } catch (error) {
-            console.log(error);
+            return error
         }
     }
 
     async #isInCart(prodId, cart){
-        console.log(cart);
         return cart.products.some(prod => prod.product === prodId)
     }
 }

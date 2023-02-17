@@ -7,23 +7,6 @@ const chatMessage = document.querySelector('#message')
 
 let user = null
 
-if(!user){
-    Swal.fire({
-        title: 'Bienvenido al chat de la pagina',
-        text: 'Ingresa tu email',
-        input: 'email',
-        inputPlaceholder: 'Ingresa tu email',
-        inputValidator: (value) => {
-            if(!value){
-                return 'Debes ingresar tu email para poder continuar'
-            }
-        }
-    }).then(email => {
-        user = email.value
-        greetingTitle.innerText = user
-    })
-}
-
 chatForm.addEventListener('submit',(e) => {
     e.preventDefault()
     let formData = new FormData(chatForm)
@@ -46,8 +29,6 @@ socketClient.on('fetchMessages', () => {
         let messageList = messages.map(message => {
             return `<p>${message.user}: ${message.message}</p>`
         }).join(' ')
-        console.log(messageList);
         chatArea.innerHTML = messageList
-        console.log(chatArea);
     })
 })
