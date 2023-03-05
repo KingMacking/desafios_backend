@@ -1,8 +1,8 @@
-# INCORPORACION DE PERSISTENCIA ATRAVES DE MONGODB
+# PREENTREGA PROYECTO FINAL
 
-Desafio Opcional N° 1 - Curso backend Coderhouse.
+PREENTREGA PROYECTO FINAL N° 2 - Curso backend Coderhouse.
 
-Se conecta MongoDB al proyecto como opción de persistencia de datos
+Profecionalizacion de las rutas y vistas
 
 ## Vistas
 
