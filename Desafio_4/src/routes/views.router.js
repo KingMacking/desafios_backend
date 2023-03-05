@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { socketServer } from "../app.js";
 import ProductManager from "../services/ProductManager.js";
 import { uploader } from "../utils.js";
 
