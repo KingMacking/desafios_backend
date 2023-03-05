@@ -6,21 +6,21 @@ Se conecta MongoDB al proyecto como opción de persistencia de datos
 
 ## Vistas
 
-# Home
+### Home
 En la ruta "/" se presenta la pantalla inicial la cual nos muestra una bienvenida y nos permite navegar a las demas vistas.
 
-# Products
+### Products
 En la ruta "/products" se veran todos los productos, la misma tambien es capaz de recibir modificadores a traves de query. Cada producto tendra un boton que nos redirigira al detalle del mismo.
 
-# Product
+### Product
 Esta vista nos mostrara los detalles de los productos como la descripcion, el stock, el codigo y su ID ademas de un boton para agregar el mismo al carrito.
 
-# Cart
+### Cart
 En ella se mostrara nuestro carrito con los productos que el mismo contiene
 
 ## Rutas
 
-# Products
+### Products
 
 _Ruta:_ /products
 
@@ -62,7 +62,7 @@ _Ruta:_ /products
 4. PUT:
     - "/:idProduct" actualiza un producto segun el ID que se envia con los datos enviados a traves del body, en caso de que dicho producto exista.
 
-## Carts
+### Carts
 
 _Ruta:_ /carts
 
