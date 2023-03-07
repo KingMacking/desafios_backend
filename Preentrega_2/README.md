@@ -22,7 +22,7 @@ En ella se mostrara nuestro carrito con los productos que el mismo contiene
 
 ### Products
 
-_Ruta:_ /products
+_Ruta:_ /api/products
 
 1. GET:
     - "/" devuelve todos los productos, se pueden aplicar distintas querys:
@@ -64,7 +64,7 @@ _Ruta:_ /products
 
 ### Carts
 
-_Ruta:_ /carts
+_Ruta:_ /api/carts
 
 1. GET:
     - "/" devuelve todos los carritos que hay, los productos que poseen muestran toda la información gracias al metodo "populate".
