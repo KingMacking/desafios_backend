@@ -5,7 +5,7 @@ const router = Router()
 
 router.post('/register', passport.authenticate('register', {
     failureRedirect: '/registerError',
-    successRedirect: '/login',
+    successRedirect: '/',
     passReqToCallback: true,
 }))
 

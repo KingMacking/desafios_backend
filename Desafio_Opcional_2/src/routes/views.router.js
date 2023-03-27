@@ -17,7 +17,6 @@ router.get('/home', async (req,res) => {
 })
 
 router.get('/products', async (req,res)=> {
-    console.log(req.session);
     try {
         if(req.session.user){
             const {limit=10, page=1, sort, ...query} = req.query
