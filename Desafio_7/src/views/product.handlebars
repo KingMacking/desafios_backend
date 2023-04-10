@@ -1,0 +1,25 @@
+<div>
+    <h2>Navegación</h2>
+    <a href="http://localhost:3000/products">Productos</a>
+    <a href="http://localhost:3000/carts/{{cart}}">Carrito</a>
+    <a href="http://localhost:3000/profile">Perfil</a>
+    <a href="http://localhost:3000/users/logout">Cerrar sesion</a>
+</div>
+
+{{#if product}}
+        <div>
+            <h2>{{product.title}}</h2>
+            <p>Descripcion: {{product.description}}</p>
+            <p>${{product.price}}</p>
+            <p>Codigo: {{product.code}}</p>
+            <p>Stock: {{product.stock}}</p>
+            <p>Categoria: {{product.category}}</p>
+            <p>ID: <span id="prodId">{{product._id}}</span></p>
+            <button id="addToCart">Agregar al carrito</button>
+            <img height="300px" src={{product.thumbnail}} alt="product image"/>
+        </div>
+{{else}}
+    <h2>El producto con el ID {{product.id}} no existe</h2>
+{{/if}}
+<script type="module" src="/js/product.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
