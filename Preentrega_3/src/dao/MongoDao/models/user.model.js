@@ -32,6 +32,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "user"
     },
+    tickets: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Tickets',
+        },
+    ],
 })
 
 export const userModel = mongoose.model('Users', userSchema)

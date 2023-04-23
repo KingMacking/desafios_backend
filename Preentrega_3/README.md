@@ -1,6 +1,6 @@
-# DESAFIO 7
+# PREENTREGA 3
 
-DESAFIO N°7 - Curso backend Coderhouse.
+PREENTREGA N°3 - Curso backend Coderhouse.
 
 Mejorando la arquitectura del servidor.
 
@@ -18,16 +18,21 @@ Esta vista nos mostrara los detalles de los productos como la descripcion, el st
 ### Cart
 En ella se mostrara nuestro carrito con los productos que el mismo contiene, en este caso siendo el mismo unico del usuario.
 
+### Purchase Ended
+En ella se nos muestra los datos de la compra finalizada, dando información de los productos procesados y los que no se pudieron procesar.
+
 ### Profile
 Nos muestra información sobre el perfil que esta logueado en la sesión en ese momento como el nombre, apellido, edad, rol, email.
 
 ### Login
 Formulario de login, nos permite ingresar a la pagina.
 Tambien se puede ingresar a traves de github.
+En caso de existir una sesión activa, se nos redirige a la pagina principal de productos con nuestro usuario ya logueado.
 
 ### Register
 Formulario de registro, nos permite crear una cuenta para luego loguearnos.
 Tambien nos podemos registrar a traves de github, el cual nos enviara directamente a la vista de productos.
+En caso de existir una sesión activa, se nos redirige a la pagina principal de productos con nuestro usuario ya logueado.
 
 ### Errores
 Ambas vistas tanto de login como register poseen una vista de error para cuando sucede algun error como que el usuario ya exista al registrarse o se ingresa algun dato erroneo al loguearse
@@ -58,7 +63,7 @@ _Ruta:_ /api/products
     - "/:idProduct" nos devuelve el producto con el ID especificado, en caso de que el mismo exista.
 
 2. POST:
-    - "/" crea un producto siempre y cuando el producto sea valido y el codigo del mismo no se repita, los datos se deben enviar a traves del body. </br>
+    - "/" crea un producto siempre y cuando el producto sea valido y el codigo del mismo no se repita, los datos se deben enviar a traves del body en un campo "product" acompañado de la contraseña de administrador en un campo "password". </br>
     Los datos que se envian deben ser los siguientes:
         - __title:__ String
         - __description:__ String
@@ -67,14 +72,14 @@ _Ruta:_ /api/products
         - __status:__ Boolean
         - __stock:__ Number
         - __category:__ String
-        - __thumbnails:__ String con la url de la imagen
+        - __thumbnail:__ String con la url de la imagen
 
 
 3. DELETE:
-    - "/:idProduct" elimina el producto con el ID solicitado en caso de que este exista.
+    - "/:idProduct" elimina el producto con el ID solicitado en caso de que este exista, se debe adjuntar en el body la contraseña de administrador en un campo "password".
 
 4. PUT:
-    - "/:idProduct" actualiza un producto segun el ID que se envia con los datos enviados a traves del body, en caso de que dicho producto exista.
+    - "/:idProduct" actualiza un producto segun el ID que se envia con los datos enviados a traves del body, en caso de que dicho producto exista, se debe adjuntar en el body la contraseña de administrador en un campo "password".
 
 ### Carts
 
@@ -120,7 +125,7 @@ _Ruta:_ /api/carts
 _Ruta:_ /api/sessions
 
 1. GET:
-    - "/current" devuelve la información guardada en session del usuario actual para luego utilizarla.
+    - "/current" devuelve la información necesaria guardada en session del usuario actual para luego utilizarla.
 
 ### Users
 
@@ -133,6 +138,13 @@ _Ruta:_ /users
 
 2. GET:
     - "/logout" nos elimina la sesión en la cual estamos logueados y la destruye en la base de datos, nos redirecciona a la vista de login
+
+### Mailing
+
+_Ruta:_ /mailing
+
+1. GET:
+    - "/send/:ticketId" recibe el ID del ticket por params para luego enviar un email con la información de la compra realizada.
 
 
 ## Prueba en local
