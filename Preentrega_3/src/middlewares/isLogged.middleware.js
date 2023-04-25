@@ -1,4 +1,3 @@
-import config from '../config/envConfig.js'
 import SessionDTO from '../dto/UsersDTO/session.dto.js'
 
 
