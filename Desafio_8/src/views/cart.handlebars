@@ -1,0 +1,25 @@
+<div>
+    <h2>Navegación</h2>
+    <a href="http://localhost:3000/products">Productos</a>
+    <a href="http://localhost:3000/carts/{{cart}}">Carrito</a>
+    <a href="http://localhost:3000/profile">Perfil</a>
+    <a href="http://localhost:3000/users/logout">Cerrar sesion</a>
+</div>
+
+<h2>Carrito</h2>
+{{#if hasProducts}}
+    {{#each products}}
+        <div>
+            <h2>{{this._id.title}}</h2>
+            <img height="300px" src={{this._id.thumbnail}} alt="product image"/>
+            <p>${{this._id.price}}</p>
+            <p>Categoria: {{this._id.category}}</p>
+            <p>Cantidad: {{this.quantity}}</p>
+        </div>
+    {{/each}}
+{{else}}
+    <h2>El carrito esto vacio</h2>
+{{/if}}
+<button id="emptyCart">Vaciar carrito</button>
+<button id="purchase">Finalizar compra</button>
+<script src="/js/cart.js"></script>

@@ -1,0 +1,42 @@
+<div>
+    <h2>Navegación</h2>
+    <a href="http://localhost:3000/products">Productos</a>
+    <a href="http://localhost:3000/carts/{{cart}}">Carrito</a>
+    <a href="http://localhost:3000/profile">Perfil</a>
+    <a href="http://localhost:3000/users/logout">Cerrar sesion</a>
+</div>
+
+<h1>COMPRA FINALIZADA</h1>
+<p>Comprador: {{{ticket.purchaser}}}</p>
+<p>Fecha: {{{ticket.purchase_datetime}}}</p>
+{{#if purchasedAll}}
+    <h2>Se procesaron todos los productos:</h2>
+    {{#each purchasedProducts}}
+    <div>
+        <h3>{{{this.name}}}</h3>
+        <p>${{{this.price}}} <span>x{{{this.quantity}}} unidades</span></p>
+    </div>
+    {{/each}}
+{{else if purchasedAny}}
+    <h2>Productos procesados:</h2>
+    {{#each purchasedProducts}}
+    <div>
+        <h3>{{{this.name}}}</h3>
+        <p>${{{this.price}}} <span>x{{{this.quantity}}}</span></p>
+    </div>
+    {{/each}}
+{{else}}
+    <h2>No se pudo procesar ningun producto</h2>
+{{/if}}
+<h3>Total: ${{{ticket.amount}}}</h3>
+
+{{#unless purchasedAll}}
+    <h2>Los siguientes productos no se han podido procesar por falta de stock:</h2>
+    {{#each insufficientStock}}
+        <div>
+            <h3>{{{this._id.title}}}</h3>
+            <p>${{{this._id.price}}} <span>x{{{this.quantity}}}</span></p>
+        </div>
+    {{/each}}
+{{/unless}}
+
