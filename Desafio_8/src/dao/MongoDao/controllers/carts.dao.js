@@ -1,3 +1,5 @@
+import CustomError from "../../../utils/errors/customError.js";
+import { ErrorsCause, ErrorsMessage, ErrorsName } from "../../../utils/errors/errors.enums.js";
 import { cartModel } from "../models/carts.model.js";
 import BasicDao from "./basic.dao.js";
 
@@ -33,7 +35,11 @@ class CartsDao extends BasicDao {
                 return `Carrito con el ID ${id} no existente`
             }
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_ID,
+                cause: ErrorsCause.INVALID_ID,
+                message: ErrorsMessage.INVALID_ID,
+            })
         }
     }
 
@@ -57,7 +63,11 @@ class CartsDao extends BasicDao {
                 return `Carrito con el ID ${id} no existente`
             }
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_CART_ID,
+                cause: ErrorsCause.INVALID_CART_ID,
+                message: ErrorsMessage.INVALID_CART_ID,
+            })
         }
     }
 
@@ -81,7 +91,11 @@ class CartsDao extends BasicDao {
                 return updatedCart
             }
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_ID,
+                cause: ErrorsCause.INVALID_ID,
+                message: ErrorsMessage.INVALID_ID,
+            })
         }
     }
 
@@ -106,7 +120,11 @@ class CartsDao extends BasicDao {
                 return `No existe un carrito con el ID ${id}`
             }
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_ID,
+                cause: ErrorsCause.INVALID_ID,
+                message: ErrorsMessage.INVALID_ID,
+            })
         }
     }
 }

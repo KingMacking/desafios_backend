@@ -1,3 +1,6 @@
+import CustomError from "../../../utils/errors/customError.js"
+import { ErrorsCause, ErrorsMessage, ErrorsName } from "../../../utils/errors/errors.enums.js"
+
 export default class BasicDao {
     constructor(model){
         this.model = model
@@ -8,7 +11,11 @@ export default class BasicDao {
             const response = await this.model.create(obj)
             return response
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_DATA,
+                cause: ErrorsCause.INVALID_DATA,
+                message: ErrorsMessage.INVALID_DATA,
+            })
         }
     }
 
@@ -17,7 +24,11 @@ export default class BasicDao {
             const response = await this.model.findOne({_id: id}).lean()
             return response
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_ID,
+                cause: ErrorsCause.INVALID_ID,
+                message: ErrorsMessage.INVALID_ID,
+            })
         }
     }
 
@@ -26,7 +37,11 @@ export default class BasicDao {
             const response = await this.model.deleteOne({_id: id})
             return response
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_ID,
+                cause: ErrorsCause.INVALID_ID,
+                message: ErrorsMessage.INVALID_ID,
+            })
         }
     }
 }

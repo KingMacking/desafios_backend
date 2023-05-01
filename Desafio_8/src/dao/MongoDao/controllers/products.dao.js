@@ -1,3 +1,5 @@
+import CustomError from "../../../utils/errors/customError.js";
+import { ErrorsCause, ErrorsMessage, ErrorsName } from "../../../utils/errors/errors.enums.js";
 import { productModel } from "../models/products.model.js";
 import BasicDao from "./basic.dao.js";
 
@@ -26,7 +28,11 @@ class ProductsDao extends BasicDao{
                 return productsResponse
             }
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.FETCH_ERROR,
+                cause: ErrorsCause.FETCH_ERROR,
+                message: ErrorsMessage.FETCH_ERROR,
+            })
         }
     }
 
@@ -40,7 +46,11 @@ class ProductsDao extends BasicDao{
             })
             return `Producto con el ID ${id} actualizado con exito`
         } catch (error) {
-            return `Se ha producido un error: ${error}`
+            CustomError.createCustomError({
+                name: ErrorsName.INVALID_PRODUCT_ID,
+                cause: ErrorsCause.INVALID_PRODUCT_ID,
+                message: ErrorsMessage.INVALID_PRODUCT_ID,
+            })
         }
     }
 }

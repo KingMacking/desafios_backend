@@ -16,7 +16,7 @@ class ProductsController {
             const products = await productsService.getAllProducts(query, options)
             res.send(products)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -27,18 +27,17 @@ class ProductsController {
             console.log(product);
             res.send(product)
         } catch (error) {
-            console.log("error:" + error);
-            res.send(error)
+            next(error)
         }
     }
 
-    addProduct = async (req,res) => {
+    addProduct = async (req,res, next) => {
         const newProduct = req.body.product
         try {
             const product = await productsService.saveProduct(newProduct)
             res.send(product)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -48,7 +47,7 @@ class ProductsController {
             const deletedProd = await productsService.deleteProductById(prodId)
             res.send(deletedProd)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -59,7 +58,7 @@ class ProductsController {
             const updatedProd = await productsService.updateProductById(prodId, updatedFields)
             res.send(updatedProd)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 }

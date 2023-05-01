@@ -24,7 +24,7 @@ class MailingController{
             })
             res.json('Email enviado')
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 }

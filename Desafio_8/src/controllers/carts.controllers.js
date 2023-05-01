@@ -11,7 +11,7 @@ class CartsController {
             let cart = await cartsService.getCartById(cartId)
             return cart
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -21,7 +21,7 @@ class CartsController {
             const product = await cartsService.updateCartById(cartId, prodId)
             res.send(product)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -31,7 +31,7 @@ class CartsController {
             const updatedCart = await cartsService.emptyCartById(cartId)
             res.send(updatedCart)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -41,7 +41,7 @@ class CartsController {
             const updatedCart = await cartsService.deleteProductById(cartId, prodId)
             res.send(updatedCart)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -52,7 +52,7 @@ class CartsController {
             const updatedCart = await cartsService.updateProductQuantityById(cartId, prodId, quantity)
             res.send(updatedCart)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -62,7 +62,7 @@ class CartsController {
             const cart = await cartsService.createCart(newCart)
             res.send(cart)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 
@@ -98,7 +98,7 @@ class CartsController {
             const purchaseTicket = await ticketsService.createPurchaseTicket(ticket)
             res.send(purchaseTicket)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 }

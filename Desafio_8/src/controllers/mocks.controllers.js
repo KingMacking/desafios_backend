@@ -9,7 +9,7 @@ class MockController {
             const products = mocksService.getAllProducts(quantity)
             res.send(products)
         } catch (error) {
-            res.send(error)
+            next(error)
         }
     }
 }
