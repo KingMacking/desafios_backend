@@ -1,0 +1,48 @@
+paths:
+    /api/products:
+        get:
+            summary: Get paginated products
+            tags:
+                - Products
+            parameters:
+                -   in: query
+                    name: limit
+                    schema:
+                        type: integer
+                        example: 1
+                        minimum: 1
+                    description: Number of products to show.
+                -   in: query
+                    name: page
+                    schema:
+                        type: integer
+                        example: 1
+                        minimum: 1
+                    description: Number of page of products to show.
+                -   in: query
+                    name: sort
+                    schema:
+                        type: 
+                            -   string
+                            -   integer
+                        minimum: -1
+                        maximum: 1
+                        example: 
+                            -   asc
+                            -   desc
+                            -   1
+                            -   -1
+                    description: The way in which products will be given based on their price.
+            responses:
+                "200":
+                    description: All products
+                    content:
+                        application/json:
+                            schemas:
+                                type: Array
+                                items:
+                                    $ref: '#/components/schemas/Products'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data
