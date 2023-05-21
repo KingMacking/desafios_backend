@@ -1,13 +1,16 @@
-# DESAFÍO 9
+# DESAFÍO 10
 
-DESAFÍO N°8 - Curso backend Coderhouse.
+DESAFÍO N°10 - Curso backend Coderhouse.
 
-Implementación de logger
+Documentación de la API.
 
 ## Vistas
 
 ### Home
 En la ruta "/" se presenta la pantalla inicial la cual nos muestra una bienvenida y nos permite navegar a las demas vistas.
+
+### API Docs
+En la ruta "/api/docs" se muestra la documentación de la API, con las rutas y endpoints de los productos y los carritos.
 
 ### Products
 En la ruta "/products" se veran todos los productos, la misma tambien es capaz de recibir modificadores a traves de query. Cada producto tendra un boton que nos redirigira al detalle del mismo.
