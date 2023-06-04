@@ -1,0 +1,25 @@
+paths:
+    /api/carts/{cid}/:
+        delete:
+            summary: Empty cart, user must be logged in, works in the web interface
+            tags:
+                - Carts
+            parameters:
+                -   in: path
+                    name: cid
+                    schema:
+                        type: string
+                        example: 6427a8f38d91824afd9ee8c0
+                    description: Cart ID
+                    required: true
+            responses:
+                "200":
+                    description: Emptied cart
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

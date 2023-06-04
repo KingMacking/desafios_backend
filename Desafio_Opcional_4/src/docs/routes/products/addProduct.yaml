@@ -1,0 +1,53 @@
+paths:
+    /api/products:
+        post:
+            summary: Create product
+            tags:
+                - Products
+            parameters:
+                -   in: body
+                    name: Product data
+                    schema:
+                        type: object
+                        example:
+                            product:
+                                title: Televisor
+                                description: Pantalla plana de 38 pulgadas
+                                category: Electrodomesticos
+                                code: "0017"
+                                stock: 20
+                                price: 1750
+                                status: true
+                                thumbnail: https://www.lg.com/ar/images/televisores/md06198536/gallery/DZ_1_N.jpg
+                    description: Product data
+                    required: true
+                -   in: body
+                    name: Admin password
+                    schema:
+                        type: object
+                        example: 
+                            password: Coder1234
+                    required: true
+            responses:
+                "200":
+                    description: Product created
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Products'
+                            example:
+                                title: Televisor
+                                description: Pantalla plana de 38 pulgadas
+                                category: Electrodomesticos
+                                code: "0017"
+                                stock: 20
+                                price: 1750
+                                status: true
+                                thumbnail: https://www.lg.com/ar/images/televisores/md06198536/gallery/DZ_1_N.jpg
+                                owner: admin
+                                _id: 6427a8f38d91824afd9ee8c0,
+                                __v: 0
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

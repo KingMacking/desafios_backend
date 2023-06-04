@@ -1,0 +1,37 @@
+#Products
+components:
+    schemas:
+        Products:
+            type: object
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+                description:
+                    type: string
+                category:
+                    type: string
+                code:
+                    type: string
+                stock:
+                    type: number
+                price:
+                    type: number
+                status:
+                    type: boolean
+                thumbnail:
+                    type: string
+                owner:
+                    type: string
+            example:
+                id: 6427a8f38d91824afd9ee8c0
+                title: Televisor
+                description: Pantalla plana de 38 pulgadas
+                category: Electrodomesticos
+                code: "0017"
+                stock: 20
+                price: 1750
+                status: true
+                thumbnail: https://www.lg.com/ar/images/televisores/md06198536/gallery/DZ_1_N.jpg
+                owner: admin@coder.com
