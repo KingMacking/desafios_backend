@@ -1,8 +1,8 @@
-# DESAFÍO OPCIONAL N°4
+# DESAFÍO OPCIONAL N°5
 
-DESAFÍO OPCIONAL N°4 - Curso backend Coderhouse.
+DESAFÍO OPCIONAL N°5 - Curso backend Coderhouse.
 
-Testing avanzado.
+Implementación de extras.
 
 ## Vistas
 
