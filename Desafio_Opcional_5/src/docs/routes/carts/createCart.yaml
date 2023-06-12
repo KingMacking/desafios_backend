@@ -1,0 +1,17 @@
+paths:
+    /api/carts/:
+        post:
+            summary: Create cart
+            tags:
+                - Carts
+            responses:
+                "200":
+                    description: Cart created successfully
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data

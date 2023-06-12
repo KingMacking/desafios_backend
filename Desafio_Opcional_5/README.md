@@ -1,8 +1,8 @@
-# DESAFÍO OPCIONAL N°5
+# DESAFÍO OPCIONAL N°4
 
-DESAFÍO OPCIONAL N°5 - Curso backend Coderhouse.
+DESAFÍO OPCIONAL N°4 - Curso backend Coderhouse.
 
-Implementación de extras.
+Testing avanzado.
 
 ## Vistas
 
@@ -149,18 +149,20 @@ _Ruta:_ /api/sessions
 _Ruta:_ /users
 
 1. POST:
-    - "/login" recibe la información con la cual el usuario se quiere loguear y permite chequear si el usuario existe o no, en caso de que exista redirecciona a "/products" y crea la sesion en base de datos, en caso de que se haya producido un error o no exista nos envia a la vista de error de login.
+    - "/login" recibe la información con la cual el usuario se quiere loguear y permite chequear si el usuario existe o no, en caso de que exista redirecciona a "/products" y crea la sesion en base de datos, en caso de que se haya producido un error o no exista nos envia a la vista de error de login. Ademas coloca como ultima conexion el momento en el que el usuario se loguea.
 
-    - "/register" recibe la informacion de un usuario al registrarse y chequea que no exista, en caso de no existir, crea el usuario y redirecciona a la vista de login, en caso de producirse un error como por ejemplo que el usuario ya exista, redirecciona a la vista de error de registro.
+    - "/register" recibe la informacion de un usuario al registrarse y chequea que no exista, en caso de no existir, crea el usuario y redirecciona a la vista de login, en caso de producirse un error como por ejemplo que el usuario ya exista, redirecciona a la vista de error de registro. Ademas coloca como ultima conexion el momento en el que el usuario se registra.
 
     - "/resetpassword" recibe la informacion de la vista para resetear la contraseña, siendo esta el email del usuario y envia un mail en el cual se envia un link temporal para resetear la contraseña del mismo.
 
     - "/createNewPassword" recibe la informacion de lo que se envia por la vista en la cual se crea una contraseña nueva y setea la misma al usuario, ademas de eliminar el token temporal generado.
 
-    - "/premium/:userId" realiza un toggle al rol del usuario, si es "premium" lo devuelve a "user" y viceversa.
+    - "/premium/:userId" realiza un toggle al rol del usuario, si es "premium" lo devuelve a "user" y viceversa. Esto solo se puede realizar si el usuario tiene los documentos necesarios subidos.
+
+    - "/:userId/documents" sube un archivo el cual se guarda en distintas carpetas dependiendo que tipo de archivo se suba, ademas de con un nombre especifico, al subirse tambien agrega el documento con su referencia y nombre en la base de datos.
 
 2. GET:
-    - "/logout" nos elimina la sesión en la cual estamos logueados y la destruye en la base de datos, nos redirecciona a la vista de login
+    - "/logout" nos elimina la sesión en la cual estamos logueados y la destruye en la base de datos, nos redirecciona a la vista de login. Ademas coloca como ultima conexion el momento en el que se produce el logout.
 
 3. DELETE:
     - "/premium/:userId/products/:prodId" elimina un producto propio del usuario.

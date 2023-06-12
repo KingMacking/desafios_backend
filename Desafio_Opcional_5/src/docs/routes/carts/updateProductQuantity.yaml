@@ -1,0 +1,40 @@
+paths:
+    /api/carts/{cid}/product/{pid}:
+        put:
+            summary: Update quantity of a product inside a cart
+            tags:
+                - Carts
+            parameters:
+                -   in: path
+                    name: cid
+                    schema:
+                        type: string
+                        example: 6427a8f38d91824afd9ee8c0
+                    description: Cart ID
+                    required: true
+                -   in: path
+                    name: pid
+                    schema:
+                        type: string
+                        example: 6427a8f38d91824afd9ee8c1
+                    description: Product ID
+                    required: true
+                -   in: body
+                    name: quantity
+                    schema:
+                        type: object
+                        example: 
+                            quantity: 30
+                    description: Updated quantity
+                    required: true
+            responses:
+                "200":
+                    description: Quantity updated
+                    content:
+                        application/json:
+                            schemas:
+                                $ref: '#/components/schemas/Carts'
+                "500":
+                    description: Server error
+                "400":
+                    description: Missing data
