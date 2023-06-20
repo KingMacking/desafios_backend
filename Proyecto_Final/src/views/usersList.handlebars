@@ -1,0 +1,6 @@
+<h1>Lista de usuarios</h1>
+{{#each users}}
+    <p>
+        <a href="http://localhost:3000/users/{{this._id}}">{{this.first_name}} {{this.last_name}}</a>
+    </p>
+{{/each}}

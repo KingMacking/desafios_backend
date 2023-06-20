@@ -1,0 +1,16 @@
+<h1>Modificar usuario</h1>
+
+<p>Nombre: {{{name}}}</p>
+<p>Email: {{{email}}}</p>
+<p>Role: {{{role}}}</p>
+<p>ID: <span id="userId">{{{id}}}</span></p>
+
+<button id="deleteUser">Eliminar</button>
+{{#if premium}}
+    <button id="setUser">Quitar premium</button>
+{{else}}
+    <button id="setPremium">Hacer premium</button>
+{{/if}}
+
+<script src="/js/modifyUser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
